@@ -51,15 +51,16 @@ const App = () => {
     ]
   );
 
-    const addPromptHandler = (prompt) => {
-      console.log(prompt);
-      // const newPrompt = { id: 3, text: 'A new prompt' };
-      // setPrompts([...prompts, newPrompt]);
+    const addPromptHandler = (newPrompt) => {
+      setPrompts((prevState) => {
+        console.log(prevState);
+        return [...prevState, newPrompt];
+      });
     }
 
-    useEffect(() => {
-      console.log(prompts);
-    }, [prompts]);
+    // useEffect(() => {
+    //   console.log(prompts);
+    // }, [prompts]);
 
     return (
       <div className="App">
@@ -67,8 +68,14 @@ const App = () => {
         <main>
           <h2>Latest GPT Prompts</h2>
           <PromptInput onAddPrompt={addPromptHandler}></PromptInput>
-          <div className="prompts">
-            {/* <PromptBox prompt={prompts[0]}></PromptBox> */}
+          <div className="prompts-container">
+            <h2>Prompts</h2>
+            <div className="prompts">
+              {prompts.map((prompt) => 
+                <PromptBox key={prompt.id} prompt={prompt}></PromptBox>
+              )}
+            </div>
+            
           </div>
           {/* <div className="add-prompt-container">
             <button onClick={addPromptHandler}>Add Prompt</button>

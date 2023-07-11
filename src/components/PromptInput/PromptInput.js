@@ -11,8 +11,9 @@ const PromptInput = (props) => {
 
   // This function will be called when the button is clicked
   const addPromptHandler = () => {
-    const newPrompt = { id: 3, text: inputValue };
+    const newPrompt = { id: Math.random(), text: inputValue };
     props.onAddPrompt(newPrompt);
+    setInputValue('');
   };
 
   return (

@@ -3,7 +3,7 @@ import './PromptBox.css';
 const PromptBox = ({ prompt }) => {
   return (
     <div className="PromptBox">
-      {prompt.text}
+      <p>{prompt.text}</p>
     </div>
   );
 }
