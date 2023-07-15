@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header/Header';
 import PromptBox from './components/PromptBox/PromptBox';
 import PromptInput from './components/PromptInput/PromptInput';
+import MetaDataModal from './components/Modals/MetaDataModal';
 
 // class App extends Component {
 //   constructor(props) {
@@ -77,10 +78,8 @@ const App = () => {
             </div>
             
           </div>
-          {/* <div className="add-prompt-container">
-            <button onClick={addPromptHandler}>Add Prompt</button>
-          </div> */}
         </main>
+        <MetaDataModal />
       </div>
     );
 }
