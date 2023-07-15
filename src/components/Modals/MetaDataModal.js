@@ -1,8 +1,19 @@
 import './MetaDataModal.css'
+import { useRef, useEffect } from 'react';
 
-const MetaDataModal = () => {
+
+
+const MetaDataModal = ({modalOpen}) => {
+  const dialog = useRef(null);
+
+  useEffect(() => {
+    if (modalOpen) {
+      dialog.current.showModal();
+    }
+  });
+  
   return (
-    <dialog class="MetaDataModal" open>
+    <dialog ref={dialog} className="MetaDataModal">
       <form method="dialog">
         <div className="input-container">
           <label htmlFor="add_tag">Add Tag:</label>

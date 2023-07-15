@@ -52,6 +52,12 @@ const App = () => {
     ]
   );
 
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const modalOpenHandler = () => {
+    setModalOpen(true);
+  }
+
     const addPromptHandler = (newPrompt) => {
       setPrompts((prevState) => {
         console.log(prevState);
@@ -78,8 +84,12 @@ const App = () => {
             </div>
             
           </div>
+          <button onClick={modalOpenHandler}>Open Modal</button>
         </main>
-        <MetaDataModal />
+        
+        {/* Modals */}
+
+        <MetaDataModal modalOpen={modalOpen} />
       </div>
     );
 }
